@@ -59,4 +59,34 @@ export function caeserCipher(string, shiftValue) {
     };
 
     return newString;
+};
+
+export function analyzeArray(array) {
+
+    const length = array.length;
+    let average;
+    let min;
+    let max;
+
+    if (length === 0) {
+        return {average:0, min:0, max:0, length};
+    };
+
+    const arraySum = array.reduce((prev, curr) => prev+curr, 0);
+    average = arraySum/length;
+
+    min = array[0];
+    max = array[0];
+
+    for (let i=1; i<length; i++) {
+        if (array[i] > max) {
+            max = array[i];
+        };
+
+        if (array[i] < min) {
+            min = array[i]
+        };
+    };
+
+    return {average, min, max, length}
 }
